@@ -26,11 +26,10 @@ const winnigPosition = [
 startGame();
 
 function startGame() {
-  createBoard();
-  messageTurn.textContent = isTurnX ? 'X' : 'O';
   isTurnX = true;
   turn = 0;
-
+  createBoard();
+  messageTurn.textContent = isTurnX ? 'X' : 'O';
   endGame.classList.remove('show');
 }
 
