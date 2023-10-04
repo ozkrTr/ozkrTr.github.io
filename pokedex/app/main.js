@@ -45,6 +45,12 @@ function agregarPokemon(data) {
     dataId = '0' + dataId;
   }
 
+  let dataHeight = data.height * 0.1;
+  dataHeight = dataHeight.toFixed(2);
+
+  let dataWeight = data.weight * 0.1;
+  dataWeight = dataWeight.toFixed(2);
+
   const section = document.createElement('section');
   section.classList.add('card');
   section.innerHTML = `
@@ -67,8 +73,8 @@ function agregarPokemon(data) {
           ${tipos}
           </div>
           <div class="info__stats">
-            <p class="info__stat">${data.height}m</p>
-            <p class="info__stat">${data.weight}kg</p>
+            <p class="info__stat">${dataHeight}m</p>
+            <p class="info__stat">${dataWeight}kg</p>
           </div>
         </div>
   `;
