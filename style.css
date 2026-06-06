@@ -1,146 +1,203 @@
-/* Variables Globales */
-:root{
-   --color-fondo:#0f172a;
-   --color-texto:#f8fafc;
-   --color-acento:#3b82f6;
-   --color-secundario:#1e293b;
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL (Reset)
+   ========================================================================== */
+:root {
+  --color-fondo: #0f172a;
+  --color-texto: #f8fafc;
+  --color-acento: #3b82f6;
+  --color-secundario: #1e293b;
+  --pading-xs: 5px;
+  --padding-s: 10px;
+  --padding-m: 15px;
+  --padding-l: 20px;
+  --padding-xl: 25px;
+  --transitions-fast: 0.3s;
 }
 
-/* Reglas universales */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* reglas globales */
-body{
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: system-ui, sans-serif;
-    padding: 20px;
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: system-ui, sans-serif;
+  padding: var(--padding-l);
 }
+
+/* ==========================================================================
+   2. COMPONENTES DE MAQUETACIÓN (Layout / Estructura superior)
+   ========================================================================== */
 
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--color-secundario);
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-secundario);
+  padding-bottom: var(--padding-l);
 }
 
 .content {
-    display: grid;
-    gap: 60px;
+  display: grid;
+  gap: 60px;
 }
 
-.menu__list {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.menu__link {
-    text-decoration: none;
-    color: var(--color-texto);
-}
-
-.menu__link:hover {
-color: #60a5fa;
-}
-
-.projects__container{
-    display: flex;
-    gap: 20px;
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .project {
-    background-color: var(--color-secundario);
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1;
+  background-color: var(--color-secundario);
+  padding: var(--padding-l);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform var(--transitions-fast) ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.form{
-    display: grid;
-    gap: 20px;
+.project:hover {
+  transform: translateY(-4px);
 }
 
-.form__grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   3. COMPONENTES ESPECÍFICOS (Secciones del portafolio)
+   ========================================================================== */
+
+.menu__list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: var(--color-texto);
+  transition: color var(--transitions-fast) ease;
+}
+
+.menu__link:hover {
+  color: #60a5fa;
+}
+
+.projects__container {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .form__section--wide {
-    grid-column: span 2;
+  grid-column: span 2;
+}
+
+.form__section:focus-within .form__label {
+  color: var(--color-acento);
 }
 
 .form__input {
-    width: 100%;
-    background-color: var(--color-secundario);
-    color: var(--color-texto);
-    border: 1px solid #334155;
-    padding: 10px;
-    border-radius: 4px;
+  width: 100%;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  border: 1px solid #334155;
+  padding: var(--padding-s);
+  border-radius: 4px;
+  transition: border var(--transitions-fast) ease;
+}
+
+.form__input:focus {
+  border: 1px solid var(--color-acento);
+  outline: none;
 }
 
 .form__label {
-    display: block;
-    margin-bottom: 8px;
+  display: block;
+  margin-bottom: 8px;
+  transition: color var(--transitions-fast) ease;
 }
 
-.form__submit{
-    background-color: var(--color-acento);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+.form__submit {
+  background-color: var(--color-acento);
+  color: #fff;
+  border: none;
+  padding: var(--padding-s) var(--padding-xl);
+  border-radius: 6px;
+  transition: background-color var(--transitions-fast) ease;
 }
 
-.form__submit:hover{
-    background-color: #2563eb;
-    cursor: pointer;
+.form__submit:hover {
+  background-color: #2563eb;
+  cursor: pointer;
 }
 
-.form__messages{
-    margin-top: 0px;
-    display: flex;
+.form__messages {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__message {
+  background-color: var(--color-secundario);
+  padding: var(--padding-s) var(--padding-xl);
+  border-radius: 7px;
+  border: 1px solid #334155;
+  color: var(--color-texto);
+}
+
+/* ==========================================================================
+   4. MEDIA QUERIES (Responsive Design)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .hero {
     flex-direction: column;
-    gap: 0px;
-}
+    gap: 15px;
+    text-align: center;
+  }
 
-.form__message{
-    background-color: transparent;
-    padding: 0px;
-    border-radius: 0px;
-    border: none;
-    color: inherit;
-}
+  /* .projects__container {
+    grid-template-columns: 1fr;
+  } */
 
-/* dias 6 y 7 responsive design*/
+  .form__grid {
+    grid-template-columns: 1fr;
+  }
 
-@media (max-width: 768px){
-    /* encabezado en mobiles titulo arriba y menu abajo */
-    .hero{
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    /* 2. Tarjetas de Proyectos: De fila horizontal a columna vertical */
-    .projects__container{
-        flex-direction: column;
-    }
-
-    /* 3. Formulario: De dos columnas a una sola columna */
-    .form__grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* 4. Modificador del Mensaje: Ya no necesita saltarse 2 columnas */
-
-    .form__section--wide{
-        grid-column: span 1;
-    }
+  .form__section--wide {
+    grid-column: span 1;
+  }
 }
