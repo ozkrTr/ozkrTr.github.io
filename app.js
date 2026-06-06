@@ -44,8 +44,7 @@ formularioContacto.addEventListener("submit", (e) => {
 
     listaMensajes.push(nuevoMensaje);
     localStorage.setItem('mensajes', JSON.stringify(listaMensajes));
-
-    console.log("Historial de mensajes: ", listaMensajes);
+    
     mostrarMensajes();
 
     alert("¡Formulario validado correctamente!");

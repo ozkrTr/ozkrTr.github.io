@@ -168,6 +168,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .form__message {
